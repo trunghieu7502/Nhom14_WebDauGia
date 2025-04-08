@@ -1,0 +1,69 @@
+﻿@model AuctionWeb.Models.UserAccount
+@{
+    ViewData["Title"] = "Đăng ký";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        <!-- Hình ảnh bên trái -->
+        <div class="col-md-6">
+            <img src="/images/register.jpg" alt="Đăng ký tài khoản" class="img-fluid">
+        </div>
+
+        <!-- Form đăng ký bên phải -->
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h2 class="text-center mb-4">Đăng ký tài khoản</h2>
+
+                    <!-- Hiển thị lỗi nếu có -->
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <form asp-action="Register" method="post">
+                        <div class="form-group">
+                            <label asp-for="User_FullName">Họ tên</label>
+                            <input asp-for="User_FullName" class="form-control" placeholder="Nhập họ tên của bạn" />
+                            <span asp-validation-for="User_FullName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="User_Address">Địa chỉ</label>
+                            <input asp-for="User_Address" class="form-control" placeholder="Nhập địa chỉ của bạn" />
+                            <span asp-validation-for="User_Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="User_Email">Email</label>
+                            <input asp-for="User_Email" class="form-control" placeholder="Nhập email của bạn" />
+                            <span asp-validation-for="User_Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="User_PhoneNo">Số điện thoại</label>
+                            <input asp-for="User_PhoneNo" class="form-control" placeholder="Nhập số điện thoại của bạn" />
+                            <span asp-validation-for="User_PhoneNo" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Password">Mật khẩu</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Nhập mật khẩu" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <!-- Gán mặc định User_Admin_ID là 1 -->
+                        <input type="hidden" asp-for="User_Admin_ID" value="1" />
+                        <button type="submit" class="btn btn-primary w-100 mt-3">Đăng ký</button>
+
+
+                    </form>
+
+                    <p class="text-center mt-3">Đã có tài khoản? <a href="@Url.Action("Login", "Account")">Đăng nhập tại đây</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
