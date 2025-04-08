@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AuctionWeb.Models.ProductCategory>
+
+<h2 class="text-center mb-4">QUẢN LÝ THỂ LOẠI</h2>
+
+<a asp-action="CreateCategory" class="btn btn-primary mb-3 btn-add">Thêm thể loại mới</a>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Tên thể loại</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cate in Model)
+            {
+                <tr>
+                    <td>@cate.Product_Cate_Name</td>
+                    <td class="text-center">
+                        <a class="btn btn-success btn-sm" asp-action="EditCategory" asp-route-id="@cate.Product_Cate_ID">Chỉnh sửa</a>
+                        <a class="btn btn-danger btn-sm" asp-action="DeleteCategory" asp-route-id="@cate.Product_Cate_ID" onclick="return confirm('Chắc chắn muốn xóa thể loại này?')">Xóa</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

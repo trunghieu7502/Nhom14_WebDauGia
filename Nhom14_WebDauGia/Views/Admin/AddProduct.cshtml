@@ -1,0 +1,27 @@
+﻿@model AuctionWeb.Models.Product
+@{
+    ViewData["Title"] = "Thêm sản phẩm mới";
+}
+
+<h2>Thêm sản phẩm mới</h2>
+
+<form method="post">
+    <label>Tên sản phẩm:</label>
+    <input asp-for="Product_Name" class="form-control" />
+
+    <label>Mô tả:</label>
+    <input asp-for="Product_Description" class="form-control" />
+
+    <label>Giá khởi điểm:</label>
+    <input asp-for="Product_Start_Bid_Amount" class="form-control" />
+
+    <label>Danh mục:</label>
+    <select asp-for="Product_Cate_ID" class="form-control">
+        @foreach (var c in ViewBag.Categories)
+        {
+            <option value="@c.Product_Cate_ID">@c.Product_Cate_Name</option>
+        }
+    </select>
+
+    <button class="btn btn-success">Thêm mới</button>
+</form>

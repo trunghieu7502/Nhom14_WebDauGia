@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">LỰA CHỌN CHỨC NĂNG</h2>
+
+    <div class="row text-center">
+        <!-- Quản lý người dùng -->
+        <div class="col-6 col-md-3 mb-4">
+            <a href="@Url.Action("UserAccounts", "Admin")" class="btn btn-danger btn-lg w-100 text-white">
+                Quản lý người dùng
+            </a>
+        </div>
+
+        <!-- Quản lý sản phẩm -->
+        <div class="col-6 col-md-3 mb-4">
+            <a href="@Url.Action("Products", "Admin")" class="btn btn-success btn-lg w-100 text-white">
+                Quản lý sản phẩm
+            </a>
+        </div>
+
+        <!-- Quản lý thể loại sản phẩm -->
+        <div class="col-6 col-md-3 mb-4">
+            <a href="@Url.Action("ProductCategories", "Admin")" class="btn btn-primary btn-lg w-100 text-white">
+                Quản lý thể loại sản phẩm
+            </a>
+        </div>
+
+        <!-- Quản lý đấu giá -->
+        <div class="col-6 col-md-3 mb-4">
+            <a href="@Url.Action("Auctions", "Admin")" class="btn btn-warning btn-lg w-100 text-white">
+                Quản lý đấu giá
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿@model AuctionWeb.Models.UserAccount
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">SỬA NGƯỜI DÙNG</h2>
+
+    <form asp-action="EditUser" method="post">
+        <input type="hidden" asp-for="User_ID" />
+
+        <!-- Họ tên -->
+        <div class="form-group mb-4">
+            <label asp-for="User_FullName" class="form-label">Họ tên</label>
+            <input asp-for="User_FullName" class="form-control" required />
+            <span asp-validation-for="User_FullName" class="text-danger"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group mb-4">
+            <label asp-for="User_Email" class="form-label">Email</label>
+            <input asp-for="User_Email" class="form-control" required />
+            <span asp-validation-for="User_Email" class="text-danger"></span>
+        </div>
+
+        <!-- Số điện thoại -->
+        <div class="form-group mb-4">
+            <label asp-for="User_PhoneNo" class="form-label">Số điện thoại</label>
+            <input asp-for="User_PhoneNo" class="form-control" required />
+            <span asp-validation-for="User_PhoneNo" class="text-danger"></span>
+        </div>
+
+        <!-- Địa chỉ -->
+        <div class="form-group mb-4">
+            <label asp-for="User_Address" class="form-label">Địa chỉ</label>
+            <input asp-for="User_Address" class="form-control" required />
+            <span asp-validation-for="User_Address" class="text-danger"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group mb-4">
+            <label asp-for="Password" class="form-label">Mật khẩu</label>
+            <input asp-for="Password" type="password" class="form-control" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <!-- Các nút -->
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Lưu</button>
+            <a asp-action="UserAccounts" class="btn btn-secondary">Quay lại</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AuctionWeb.Models.Auction>
+
+<h2 class="text-center mb-4">QUẢN LÝ PHIÊN ĐẤU GIÁ</h2>
+
+<a asp-action="CreateAuction" class="btn btn-primary mb-3 btn-add">Thêm phiên đấu giá</a>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Ngày bắt đầu</th>
+                <th>Ngày kết thúc</th>
+                <th>Giá giới hạn</th>
+                <th>Người chiến thắng</th>
+                <th>Giá thắng</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var auction in Model)
+            {
+                <tr>
+                    <td>@auction.Product.Product_Name</td>
+                    <td>@auction.Aut_Start_Date.ToString("dd/MM/yyyy")</td>
+                    <td>@auction.Aut_End_Date.ToString("dd/MM/yyyy")</td>
+                    <td>@auction.Aut_Reserve_Price.ToString("N0")</td>
+                    <td>@auction.Aut_Winner_FullName</td>
+                    <td>@auction.Aut_Winner_Amount?.ToString("N0")</td>
+                    <td class="text-center">
+                        <a class="btn btn-success btn-sm" asp-action="EditAuction" asp-route-id="@auction.Auction_ID">Sửa</a> |
+                        <a class="btn btn-danger btn-sm" asp-action="DeleteAuction" asp-route-id="@auction.Auction_ID" onclick="return confirm('Bạn chắc chắn muốn xóa phiên đấu giá này?')">Xóa</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
