@@ -1,22 +1,176 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 body {
-  margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    flex: 1;
+}
+
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.text-muted {
+    font-size: 12px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-lg {
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-md-3 {
+    width: 25%;
+}
+
+
+.btn {
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-add {
+    width: 400px !important; 
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+.btn-login  {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.btn-register {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+    width: auto;
+    max-width: 120px;
+}
+
+.table .btn {
+    width: 100px;
+    text-align: center;
+    .auction-details
+
+{
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auction-details p {
+    margin-bottom: 15px; 
+}
+
+.auction-details h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.auction-details form {
+    margin-top: 30px;
+}
+
+.table {
+    margin-top: 30px;
+    width: 100%;
+}
+
+    table th, table td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    table th {
+        background-color: #007bff;
+        color: white;
+    }
+
+.alert-danger {
+    margin-top: 30px;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.col-md-6 img {
+    width: 100%;
+    height: auto; 
+    object-fit: contain;
+    max-height: 500px;
+    border-radius: 8px; 
+}
+
+.auction-details { 
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.table-bordered th, .table-bordered td {
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
 }
