@@ -1,0 +1,20 @@
+﻿@model IEnumerable<AuctionWeb.Models.Auction>
+
+<h2>Sản phẩm đã thắng</h2>
+<table class="table">
+    <tr>
+        <th>Sản phẩm</th>
+        <th>Giá thắng</th>
+        <th>Thời gian kết thúc</th>
+        <th>Thanh toán trước</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Product.Product_Name</td>
+            <td>@item.Aut_Winner_Amount?.ToString("N0")</td>
+            <td>@item.Aut_End_Date.ToString("dd/MM/yyyy HH:mm")</td>
+            <td>@(item.Payment_Deadline?.ToString("dd/MM/yyyy HH:mm") ?? "Không có")</td>
+        </tr>
+    }
+</table>

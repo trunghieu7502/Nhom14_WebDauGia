@@ -1,0 +1,32 @@
+﻿@model AuctionWeb.Models.UserAccount
+
+<h2>Edit Profile</h2>
+
+<form asp-action="EditProfile" method="post">
+    <input type="hidden" asp-for="User_ID" />
+
+    <div class="form-group">
+        <label asp-for="User_FullName"></label>
+        <input asp-for="User_FullName" class="form-control" />
+        <span asp-validation-for="User_FullName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="User_PhoneNo"></label>
+        <input asp-for="User_PhoneNo" class="form-control" />
+        <span asp-validation-for="User_PhoneNo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="User_Address"></label>
+        <input asp-for="User_Address" class="form-control" />
+        <span asp-validation-for="User_Address" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="UserHome" class="btn btn-secondary">Hủy</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
