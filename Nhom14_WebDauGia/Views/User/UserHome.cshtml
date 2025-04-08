@@ -1,0 +1,23 @@
+﻿@model IEnumerable<AuctionWeb.Models.Auction>
+
+<h2 class="text-center mt-3 font-weight-bold">CÁC PHIÊN ĐẤU GIÁ</h2> <!-- Tiêu đề in hoa, đậm, ở giữa -->
+<!-- Nút điều hướng tới các phiên đấu giá đã kết thúc -->
+<a href="@Url.Action("ClosedAuctions", "Auction")" class="btn btn-secondary mb-3 btn-sm btn-closed-auctions">Các phiên đấu giá đã kết thúc</a>
+
+<div class="row">
+    @foreach (var auction in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@auction.Product.Product_Name</h5>
+                    <p class="card-text">@auction.Product.Product_Description</p>
+                    <p class="card-text">Bắt đầu: @auction.Aut_Start_Date.ToString("dd/MM/yyyy HH:mm")</p>
+                    <p class="card-text">Kết thúc: @auction.Aut_End_Date.ToString("dd/MM/yyyy HH:mm")</p>
+                    <p class="card-text">Giá khởi điểm: @auction.Aut_Reserve_Price.ToString("N0") VND</p>
+                    <a href="@Url.Action("Details", "Auction", new { id = auction.Auction_ID })" class="btn btn-primary">Chi tiết</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

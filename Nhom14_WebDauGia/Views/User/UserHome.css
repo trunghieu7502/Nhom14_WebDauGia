@@ -1,0 +1,184 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Đảm bảo trang chiếm đủ chiều cao */
+}
+
+.container {
+    flex-grow: 1;
+}
+
+footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+    line-height: 60px;
+    width: 100%;
+}
+/* Tiêu đề in hoa, đậm, và căn giữa */
+h2.text-center {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Định dạng nút "Các phiên đấu giá đã kết thúc" */
+.btn-closed-auctions {
+    width: 300px;
+    text-align: center;
+}
+/* ===== Toàn trang ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc; /* Màu nền nhạt */
+}
+
+/* ===== Tiêu đề ===== */
+h2 {
+    font-size: 2rem;
+    color: #212529;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* ===== Bảng đấu giá ===== */
+.table {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    border-collapse: collapse;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .table th, .table td {
+        padding: 12px;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .table thead {
+        background-color: #007bff; /* Nền màu xanh cho header */
+        color: white;
+    }
+
+    .table tbody tr:nth-child(odd) {
+        background-color: #f9f9f9; /* Màu nền cho dòng lẻ */
+    }
+
+    .table tbody tr:hover {
+        background-color: #e9ecef; /* Nền sáng lên khi hover */
+    }
+
+/* ===== Nút Xem chi tiết ===== */
+.btn-info {
+    background-color: #17a2b8;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+    .btn-info:hover {
+        background-color: #138496; /* Hiệu ứng khi hover vào nút */
+    }
+
+/* ===== Định dạng bảng và cột ===== */
+.table td, .table th {
+    border: 1px solid #ddd; /* Viền mỏng cho bảng */
+}
+
+.table td {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.table th {
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+/* ===== Toàn trang ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Tiêu đề ===== */
+h2 {
+    font-size: 2rem;
+    color: #212529;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* ===== Các ô thông tin người dùng ===== */
+.user-details p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* ===== Form nhập liệu ===== */
+.form-group {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .form-group input {
+        font-size: 1rem;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+/* ===== Nút cập nhật ===== */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    width: 100%;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+/* ===== Căn chỉnh một cột và căn giữa ===== */
+.row {
+    justify-content: center;
+}
+
+.col-md-6 {
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}

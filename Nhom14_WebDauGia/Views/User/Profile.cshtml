@@ -1,0 +1,41 @@
+﻿@model AuctionWeb.Models.UserAccount
+
+<div class="container mt-5">
+    <h2 class="text-center font-weight-bold">THÔNG TIN TÀI KHOẢN</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
+
+    <div class="row justify-content-center">
+        <!-- Form cập nhật thông tin -->
+        <div class="col-md-6">
+            <form method="post" asp-action="Profile">
+                <div class="form-group">
+                    <label for="User_FullName">Họ và tên</label>
+                    <input type="text" class="form-control" id="User_FullName" name="User_FullName" value="@Model.User_FullName" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="User_Email">Email</label>
+                    <input type="email" class="form-control" id="User_Email" name="User_Email" value="@Model.User_Email" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="User_PhoneNo">Số điện thoại</label>
+                    <input type="text" class="form-control" id="User_PhoneNo" name="User_PhoneNo" value="@Model.User_PhoneNo" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="User_Address">Địa chỉ</label>
+                    <input type="text" class="form-control" id="User_Address" name="User_Address" value="@Model.User_Address" required />
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary w-100">Cập nhật thông tin</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<AuctionWeb.Models.Shipment>
+
+<h2>Trạng thái giao hàng</h2>
+<table class="table">
+    <tr>
+        <th>Sản phẩm</th>
+        <th>Ngày giao dự kiến</th>
+        <th>Ngày giao thực tế</th>
+        <th>Phí giao hàng</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Product.Product_Name</td>
+            <td>@item.Shipment_Planned_Date.ToString("dd/MM/yyyy")</td>
+            <td>@(item.Shipment_Actual_Date != DateTime.MinValue ? item.Shipment_Actual_Date.ToString("dd/MM/yyyy") : "Chưa giao")</td>
+            <td>@item.Shipment_Fee?.ToString("N0") VNĐ</td>
+        </tr>
+    }
+</table>
+<a asp-action="WonAuctions" class="btn btn-secondary">Quay lại</a>
