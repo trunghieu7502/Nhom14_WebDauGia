@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        <!-- Hình ảnh bên trái -->
+        <div class="col-md-6">
+            <img src="/images/register.jpg" alt="Đăng ký tài khoản" class="img-fluid">
+        </div>
+
+        <!-- Form đăng nhập bên phải -->
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h2 class="text-center mb-4">Đăng nhập</h2>
+
+                    <!-- Hiển thị lỗi nếu có -->
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <form asp-action="Login" method="post">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Nhập email của bạn" required />
+                            <span class="text-danger">@ViewBag.Error</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Mật khẩu</label>
+                            <input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu" required />
+                            <span class="text-danger">@ViewBag.Error</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-login w-100 mt-3">Đăng nhập</button>
+
+                    </form>
+
+                    <p class="text-center mt-3">Chưa có tài khoản? <a href="@Url.Action("Register", "Account")">Đăng ký tại đây</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
