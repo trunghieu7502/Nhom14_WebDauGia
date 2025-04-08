@@ -1,0 +1,73 @@
+﻿@model AuctionWeb.Models.Auction
+@{
+    var bids = ViewBag.Bids as List<AuctionWeb.Models.AuctionBid>;
+    var highestBid = ViewBag.HighestBid;
+    var highestBidder = ViewBag.HighestBidder;
+    var bidTime = ViewBag.BidTime;
+    var minBidAmount = highestBid > 0 ? highestBid : Model.Aut_Reserve_Price;
+    var isAuctionClosed = ViewBag.IsAuctionClosed;
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Column: Product Image -->
+        <div class="col-md-6">
+            <img src="/images/laptop.jpg" alt="Product Image" class="img-fluid rounded">
+        </div>
+
+        <!-- Right Column: Product Details -->
+        <div class="col-md-6">
+            <div class="auction-details">
+                <h2 class="font-weight-bold">@Model.Product.Product_Name</h2>
+                <p>@Model.Product.Product_Description</p>
+                <p><strong>Giá khởi điểm: </strong>@Model.Aut_Reserve_Price.ToString("N0") VND</p>
+                <p><strong>Thời gian kết thúc: </strong>@Model.Aut_End_Date.ToString("dd/MM/yyyy HH:mm")</p>
+                <p><strong>Bước nhảy tối thiểu: </strong>@Model.Min_Bid_Increment.ToString("N0") VND</p>
+                <p><strong>Giá cao nhất hiện tại: </strong>@highestBid.ToString("N0") VNĐ</p>
+
+                @if (isAuctionClosed)
+                {
+                    <div class="alert alert-danger">
+                        <h4 class="text-success">Thông tin người thắng cuộc:</h4>
+                        <p><strong>Người thắng cuộc:</strong> @highestBidder</p>
+                        <p><strong>Giá chốt cuối cùng:</strong> @highestBid.ToString("N0") VNĐ</p>
+                        <p><strong>Thời gian đặt giá:</strong> @bidTime?.ToString("dd/MM/yyyy HH:mm")</p>
+                        <p class="text-danger">⚠️ Phiên đấu giá đã kết thúc. Bạn không thể đấu giá thêm nữa.</p>
+                    </div>
+                }
+                else
+                {
+                    <form id="placeBidForm" asp-action="PlaceBid" method="post">
+                        <input type="hidden" name="auctionId" value="@Model.Auction_ID" />
+                        <div class="form-group">
+                            <label>Nhập giá đấu</label>
+                            <input type="number" name="bidAmount" class="form-control" required min="@minBidAmount" value="@minBidAmount" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Đặt giá</button>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+
+    <h4 class="mt-5">Lịch sử đấu giá</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Người đấu</th>
+                <th>Giá</th>
+                <th>Thời gian</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bid in bids)
+            {
+                <tr>
+                    <td>@bid.UserAccount?.User_FullName</td>
+                    <td>@bid.Bid_Amount.ToString("N0") VNĐ</td>
+                    <td>@bid.Bid_Time.ToString("dd/MM/yyyy HH:mm")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

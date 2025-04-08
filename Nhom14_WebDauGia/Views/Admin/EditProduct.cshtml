@@ -1,0 +1,54 @@
+﻿@model AuctionWeb.Models.Product
+@{
+    ViewData["Title"] = "Sửa sản phẩm";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">SỬA THÔNG TIN SẢN PHẨM</h2>
+
+    <form asp-action="EditProduct" method="post">
+        <input type="hidden" asp-for="Product_ID" />
+        <input type="hidden" asp-for="Seller_ID" />
+
+        <div class="form-group mb-4">
+            <label asp-for="Product_Name" class="form-label">Tên sản phẩm:</label>
+            <input asp-for="Product_Name" class="form-control" />
+            <span asp-validation-for="Product_Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-4">
+            <label asp-for="Product_Description" class="form-label">Mô tả:</label>
+            <textarea asp-for="Product_Description" class="form-control"></textarea>
+            <span asp-validation-for="Product_Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-4">
+            <label asp-for="Product_Start_Bid_Amount" class="form-label">Giá khởi điểm:</label>
+            <input asp-for="Product_Start_Bid_Amount" class="form-control" type="number" />
+            <span asp-validation-for="Product_Start_Bid_Amount" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-4">
+            <label asp-for="Min_Bid_Increment" class="form-label">Mức tăng tối thiểu:</label>
+            <input asp-for="Min_Bid_Increment" class="form-control" type="number" />
+            <span asp-validation-for="Min_Bid_Increment" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-4">
+            <label asp-for="Product_Cate_ID" class="form-label">Thể loại:</label>
+            <select asp-for="Product_Cate_ID" asp-items="@ViewBag.Categories" class="form-control">
+                <option value="">-- Chọn thể loại --</option>
+            </select>
+            <span asp-validation-for="Product_Cate_ID" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Lưu</button>
+            <a asp-action="Products" class="btn btn-secondary">Quay lại</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

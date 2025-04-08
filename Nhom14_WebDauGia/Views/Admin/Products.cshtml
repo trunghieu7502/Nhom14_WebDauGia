@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AuctionWeb.Models.Product>
+
+<h2 class="text-center mb-4">QUẢN LÝ SẢN PHẨM</h2>
+<a asp-action="CreateProduct" class="btn btn-primary mb-3 btn-add">Thêm sản phẩm mới</a>
+
+
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Mô tả</th>
+                <th>Giá khởi điểm</th>
+                <th>Thể loại</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.Product_Name</td>
+                    <td>@p.Product_Description</td>
+                    <td>@p.Product_Start_Bid_Amount.ToString("N0")</td>
+                    <td>@p.ProductCategory?.Product_Cate_Name</td>
+                    <td class="text-center">
+                        <a class="btn btn-success btn-sm" asp-action="EditProduct" asp-route-id="@p.Product_ID">Sửa</a>
+                        <a class="btn btn-danger btn-sm" asp-action="DeleteProduct" asp-route-id="@p.Product_ID" onclick="return confirm('Chắc chắn muốn xóa sản phẩm này?')">Xóa</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

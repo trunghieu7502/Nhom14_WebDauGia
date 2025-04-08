@@ -1,0 +1,38 @@
+﻿@model IEnumerable<AuctionWeb.Models.UserAccount>
+
+<h2 class="text-center mb-4">QUẢN LÝ NGƯỜI DÙNG</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.User_FullName</td>
+                    <td>@user.User_Email</td>
+                    <td>@user.User_PhoneNo</td>
+                    <td>@user.User_Address</td>
+                    <td class="text-center">
+                        <a class="btn btn-success btn-sm" asp-action="EditUser" asp-route-id="@user.User_ID">Chỉnh sửa</a>
+                        <a class="btn btn-danger btn-sm" asp-action="DeleteUser" asp-route-id="@user.User_ID" onclick="return confirm('Bạn chắc muốn xóa user này?')">Xóa</a>
+
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
